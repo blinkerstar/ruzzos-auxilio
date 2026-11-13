@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rúzzos Death Note">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Rúzzos Death Note</title>
+<style>
+:root{--bg:#080808;--panel:#121212;--panel2:#191919;--line:#303030;--fg:#f5f5f5;--muted:#a5a5a5;--accent:#e7e7e7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#303030 0,transparent 48%),var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:980px;margin:auto;padding:22px 16px 60px}.brand{text-align:center;padding:22px 0 26px}.sigil{width:74px;height:74px;border:1px solid #777;border-radius:50%;overflow:hidden;display:grid;place-items:center;margin:0 auto 12px;background:#050505}.sigil img{width:100%;height:100%;object-fit:cover;object-position:center}.brand h1{font-size:clamp(25px,6vw,40px);letter-spacing:.13em;margin:0;font-weight:900}.brand p{color:var(--muted);letter-spacing:.22em;font-size:10px;margin:7px 0 0}.card{background:linear-gradient(145deg,#171717,#0f0f0f);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 16px 45px #0008}.auth{max-width:420px;margin:10px auto}.eyebrow{color:#aaa;text-transform:uppercase;letter-spacing:.16em;font-size:10px}.card h2{margin:4px 0 16px;font-size:22px}.field{display:grid;gap:7px;margin:13px 0}.field label{font-size:12px;color:#c8c8c8}.field input,.field select{width:100%;background:#080808;color:white;border:1px solid #393939;border-radius:10px;padding:12px 13px;outline:none}.field input:focus,.field select:focus{border-color:#aaa}.btn{border:1px solid #eee;background:#eee;color:#080808;border-radius:10px;padding:12px 16px;font-weight:800;width:100%;transition:.15s}.btn:hover{background:white;transform:translateY(-1px)}.btn.secondary{background:#191919;color:#eee;border-color:#444}.btn.small{width:auto;padding:9px 12px;font-size:12px}.hint{color:var(--muted);font-size:12px}.hidden{display:none!important}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 18px}.topbar strong{letter-spacing:.1em}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.wide{grid-column:1/-1}.stat{background:#0c0c0c;border:1px solid #303030;border-radius:13px;padding:14px}.stat span{display:block;color:#999;font-size:11px}.stat b{font-size:20px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 12px}.section-title h3{margin:0;font-size:17px}.control{padding:13px 0;border-bottom:1px solid #292929}.control:last-child{border:0}.control-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.control-head label{font-size:13px}.value{font-weight:800;font-variant-numeric:tabular-nums}.range{width:100%;accent-color:#eee}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.actions .btn{flex:1;min-width:130px}.notice{border:1px solid #454545;background:#101010;border-radius:12px;padding:13px;color:#c7c7c7;font-size:12px}.notice b{color:#fff}.footer{text-align:center;color:#777;font-size:10px;letter-spacing:.12em;margin-top:24px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#eee;color:#080808;padding:10px 15px;border-radius:10px;font-weight:700;font-size:12px;box-shadow:0 5px 30px #0008;z-index:5}
+@media(max-width:600px){.wrap{padding:12px 12px 40px}.card{padding:16px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.topbar{align-items:flex-start}.topbar .btn{width:auto}.brand{padding:16px 0 20px}}
+
+.cover-frame{position:relative;margin:4px auto 20px;max-width:900px;padding:7px;border:1px solid #e5e5e5;border-radius:17px;background:linear-gradient(135deg,#f5f5f5,#555,#eee,#222);box-shadow:0 0 0 4px #111,0 18px 50px #000b}
+.cover-frame:before{content:"";position:absolute;inset:3px;border:1px solid #777;border-radius:11px;pointer-events:none;z-index:1}
+.cover-frame img{display:block;width:100%;height:clamp(180px,44vw,430px);object-fit:cover;object-position:center 43%;border-radius:10px;filter:grayscale(1) contrast(1.08)}
+.cover-caption{text-align:center;color:#cfcfcf;letter-spacing:.2em;font-size:10px;margin:-8px 0 18px}
+.install-panel{max-width:900px;margin:0 auto 16px;padding:12px 15px;border:1px solid #444;border-radius:12px;background:#101010;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.install-panel p{margin:0;color:#bbb;font-size:12px;flex:1;min-width:200px}
+.install-panel .btn{width:auto;min-width:150px}
+@media(max-width:600px){.cover-frame{padding:5px;border-radius:13px}.cover-frame img{height:220px}.install-panel .btn{width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="cover-frame" aria-label="Portada Rúzzos Death Note">
+    <img src="ryuk-cover.jpg" alt="Ilustración manga en blanco y negro enviada para la portada de Rúzzos Death Note">
+  </section>
+  <div class="cover-caption">RÚZZOS DEATH NOTE · THE BLACK FILE</div>
+  <section class="install-panel">
+    <p><b>Instala la aplicación:</b> en Android usa “Instalar aplicación”. En iPhone, abre Compartir en Safari y elige “Añadir a pantalla de inicio”.</p>
+    <button id="installBtn" class="btn secondary small" type="button">INSTALAR APP</button>
+  </section>
+  <header class="brand">
+    <div class="sigil"><img src="skull-art.jpg" alt="Ilustración de cráneo en blanco y negro"></div>
+    <h1>RÚZZOS</h1>
+    <p>DEATH NOTE · FREE FIRE CONFIG</p>
+  </header>
+
+  <section id="loginView" class="card auth">
+    <div class="eyebrow">Acceso privado</div>
+    <h2>Iniciar sesión</h2>
+    <form id="loginForm">
+      <div class="field"><label for="username">Usuario</label><input id="username" autocomplete="username" required placeholder="Tu usuario"></div>
+      <div class="field"><label for="password">Contraseña</label><input id="password" type="password" autocomplete="current-password" required placeholder="Tu contraseña"></div>
+      <button class="btn" type="submit">ENTRAR AL PANEL</button>
+    </form>
+    <p class="hint">Acceso de demostración con las credenciales Rúzzos proporcionadas. No uses esta clave para proteger información sensible.</p>
+  </section>
+
+  <main id="appView" class="hidden">
+    <div class="topbar"><div><div class="eyebrow">Panel de configuración</div><strong id="welcome">USUARIO</strong></div><button id="logout" class="btn secondary small">Cerrar sesión</button></div>
+    <div class="grid">
+      <section class="card wide">
+        <div class="section-title"><h3>Diagnóstico del dispositivo</h3><span class="eyebrow">LECTURA DEL NAVEGADOR</span></div>
+        <div class="grid">
+          <div class="stat"><span>Sistema detectado</span><b id="detectedOS">Detectando…</b></div>
+          <div class="stat"><span>Pantalla / píxeles CSS</span><b id="screenInfo">—</b></div>
+          <div class="stat"><span>Densidad de pantalla</span><b id="densityInfo">—</b></div>
+          <div class="stat"><span>Soporte táctil</span><b id="touchInfo">—</b></div>
+        </div>
+        <div class="field"><label for="deviceModel">Modelo del teléfono (opcional, para personalizar el perfil)</label><input id="deviceModel" placeholder="Ej. Samsung Galaxy A54 / iPhone 13"></div>
+        <div class="field"><label for="device">Tipo de dispositivo</label><select id="device"><option value="android">Android</option><option value="iphone">iPhone</option></select></div>
+        <div class="field"><label for="profile">Estilo de control</label><select id="profile"><option value="equilibrado">Equilibrado</option><option value="rapido">Respuesta rápida</option><option value="control">Control preciso</option></select></div>
+        <div class="notice">El navegador puede leer algunas características de pantalla y tacto, pero no puede identificar siempre el modelo exacto, medir la tasa real de refresco ni cambiar ajustes del sistema.</div>
+      </section>
+      <section class="card wide">
+        <div class="section-title"><h3>Prueba táctil</h3><span class="eyebrow">CALIBRACIÓN WEB</span></div>
+        <p class="hint">Toca el círculo cuando aparezca. Esta prueba mide la respuesta de interacción en el navegador, no la latencia real del panel ni la respuesta de Free Fire.</p>
+        <div id="touchTest" style="height:170px;border:1px dashed #555;border-radius:14px;display:grid;place-items:center;background:#080808;touch-action:manipulation">
+          <button id="touchTarget" class="btn secondary small" style="width:auto;border-radius:50%;height:88px;min-width:88px">TOCA</button>
+        </div>
+        <div class="grid" style="margin-top:10px">
+          <div class="stat"><span>Toques registrados</span><b id="tapCount">0</b></div>
+          <div class="stat"><span>Intervalo medio entre toques</span><b id="tapAverage">—</b></div>
+        </div>
+        <div class="actions"><button id="startTouchTest" class="btn secondary">Iniciar / reiniciar prueba</button></div>
+      </section>
+
+      <section class="card wide">
+        <div class="section-title"><h3>Sensibilidad</h3><span class="eyebrow">AJUSTE MANUAL</span></div>
+        <div id="sliders"></div>
+        <div class="actions">
+          <button id="generate" class="btn secondary">GENERAR SENSIBILIDAD</button>
+          <button id="save" class="btn">GUARDAR CONFIGURACIÓN</button>
+          <button id="reset" class="btn secondary">RESTABLECER</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title"><h3>Calibración</h3></div>
+        <div class="field"><label for="dpi">DPI / ancho mínimo (opcional)</label><input id="dpi" type="number" min="0" max="2000" placeholder="No modificar si no sabes qué es"></div>
+        <div class="field"><label for="fps">Frecuencia / FPS objetivo</label><select id="fps"><option>60 FPS</option><option>90 FPS</option><option>120 FPS</option><option>No lo sé</option></select></div>
+        <p class="hint">No cambia ajustes del sistema. Úsalo como referencia para anotar tu equipo.</p>
+      </section>
+
+      <section class="card">
+        <div class="section-title"><h3>Perfiles guardados</h3></div>
+        <div class="field"><label for="profileName">Nombre del perfil</label><input id="profileName" placeholder="Ej. Mi configuración ranked"></div>
+        <div class="actions"><button id="saveProfile" class="btn secondary">Guardar perfil</button></div>
+        <div class="field"><label for="savedProfiles">Cargar perfil</label><select id="savedProfiles"><option value="">Selecciona un perfil</option></select></div>
+        <div class="actions"><button id="loadProfile" class="btn secondary">Cargar</button><button id="deleteProfile" class="btn secondary">Eliminar</button></div>
+      </section>
+
+      <section class="card">
+        <div class="section-title"><h3>Mi configuración</h3></div>
+        <div class="stat"><span>Perfil activo</span><b id="profileSummary">Equilibrado</b></div>
+        <div class="stat" style="margin-top:9px"><span>Dispositivo</span><b id="deviceSummary">Android</b></div>
+        <div class="actions"><button id="export" class="btn secondary">EXPORTAR .JSON</button></div>
+      </section>
+
+      <section class="card wide">
+        <div class="section-title"><h3>Aplicar en Free Fire</h3></div>
+        <ol class="hint" style="padding-left:20px;line-height:1.9">
+          <li>Guarda o exporta tus valores desde este panel.</li>
+          <li>Abre Free Fire y entra en <b>Ajustes → Sensibilidad</b>.</li>
+          <li>Introduce manualmente cada valor recomendado.</li>
+          <li>Prueba en el campo de entrenamiento y ajusta poco a poco.</li>
+        </ol>
+        <div class="notice"><b>Importante:</b> esta web no se conecta al juego ni inyecta archivos, macros o scripts. No puede activar cambios dentro de Free Fire automáticamente. Los cambios se aplican manualmente desde los ajustes oficiales del juego.</div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">RÚZZOS DEATH NOTE · PROTOTIPO WEB</footer>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script>
+const keys=[["General",0,200,95],["Punto rojo",0,200,90],["Mira 2x",0,200,85],["Mira 4x",0,200,80],["Mira francotirador",0,200,50],["Cámara libre",0,200,75]];
+const $=id=>document.getElementById(id);
+let current={};
+function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),2100)}
+function renderSliders(values){$("sliders").innerHTML="";keys.forEach(([name,min,max,def],i)=>{let v=values?.[i]??def;let row=document.createElement("div");row.className="control";row.innerHTML=`<div class="control-head"><label>${name}</label><span class="value" id="v${i}">${v}</span></div><input class="range" id="s${i}" type="range" min="${min}" max="${max}" value="${v}" aria-label="${name}">`; $("sliders").append(row);$("s"+i).addEventListener("input",e=>$("v"+i).textContent=e.target.value)})}
+function readValues(){return keys.map((_,i)=>Number($("s"+i).value))}
+function updateSummary(){$("profileSummary").textContent=$("profile").selectedOptions[0].text;$("deviceSummary").textContent=$("device").selectedOptions[0].text}
+function showApp(name){$("loginView").classList.add("hidden");$("appView").classList.remove("hidden");$("welcome").textContent=name.toUpperCase();current.name=name;loadConfig();updateSummary()}
+function loadConfig(){let saved=JSON.parse(localStorage.getItem("rdn_config")||"null");renderSliders(saved?.values);refreshProfiles();detectDevice();if(saved){$("device").value=saved.device||"android";$("deviceModel").value=saved.deviceModel||"";$("profile").value=saved.profile||"equilibrado";$("dpi").value=saved.dpi||"";$("fps").value=saved.fps||"60 FPS"}}
+
+function detectDevice(){
+ const ua=navigator.userAgent||"";
+ const isIOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+ const isAndroid=/Android/i.test(ua);
+ $("detectedOS").textContent=isIOS?"iOS":isAndroid?"Android":"No identificado";
+ $("device").value=isIOS?"iphone":"android";
+ $("screenInfo").textContent=`${screen.width} × ${screen.height}`;
+ $("densityInfo").textContent=`${window.devicePixelRatio||1}×`;
+ $("touchInfo").textContent=(navigator.maxTouchPoints||0)>0?`Sí · ${navigator.maxTouchPoints} puntos`:"No detectado";
+ updateSummary();
+}
+let tapTimes=[],testActive=false;
+$("startTouchTest").onclick=()=>{tapTimes=[];testActive=true;$("tapCount").textContent="0";$("tapAverage").textContent="—";$("touchTarget").textContent="TOCA";toast("Prueba táctil iniciada")};
+$("touchTarget").onclick=()=>{if(!testActive){toast("Pulsa Iniciar prueba primero");return}tapTimes.push(performance.now());$("tapCount").textContent=String(tapTimes.length);if(tapTimes.length>1){let diffs=tapTimes.slice(1).map((t,i)=>t-tapTimes[i]);let avg=diffs.reduce((a,b)=>a+b,0)/diffs.length;$("tapAverage").textContent=`${Math.round(avg)} ms`}if(tapTimes.length>=10){testActive=false;$("touchTarget").textContent="LISTO";toast("Prueba completada")}};
+function generateSensitivity(){
+ const base={equilibrado:[96,91,86,81,52,76],rapido:[100,96,91,86,58,82],control:[89,84,78,73,45,68]};
+ let vals=[...base[$("profile").value]];
+ const dpr=window.devicePixelRatio||1;
+ if(dpr>=3) vals=vals.map((v,i)=>Math.max(1,v-(i<4?2:1)));
+ if($("device").value==="iphone") vals=vals.map((v,i)=>Math.min(200,v+(i<2?1:0)));
+ renderSliders(vals);updateSummary();
+ toast("Recomendación generada; pruébala y ajusta en entrenamiento");
+}
+$("generate").onclick=generateSensitivity;
+function getSavedProfiles(){return JSON.parse(localStorage.getItem("rdn_profiles")||"{}")}
+function refreshProfiles(){
+ const profiles=getSavedProfiles(),select=$("savedProfiles"),old=select.value;
+ select.innerHTML='<option value="">Selecciona un perfil</option>';
+ Object.keys(profiles).sort().forEach(name=>{let opt=document.createElement("option");opt.value=name;opt.textContent=name;select.append(opt)});
+ if(profiles[old])select.value=old;
+}
+function collectConfig(){return {values:readValues(),device:$("device").value,deviceModel:$("deviceModel").value,profile:$("profile").value,dpi:$("dpi").value,fps:$("fps").value}}
+$("saveProfile").onclick=()=>{let name=$("profileName").value.trim();if(!name){toast("Escribe un nombre para el perfil");return}let profiles=getSavedProfiles();profiles[name]=collectConfig();localStorage.setItem("rdn_profiles",JSON.stringify(profiles));refreshProfiles();$("savedProfiles").value=name;toast("Perfil guardado")};
+$("loadProfile").onclick=()=>{let name=$("savedProfiles").value,config=getSavedProfiles()[name];if(!config){toast("Selecciona un perfil");return}renderSliders(config.values);$("device").value=config.device||"android";$("deviceModel").value=config.deviceModel||"";$("profile").value=config.profile||"equilibrado";$("dpi").value=config.dpi||"";$("fps").value=config.fps||"60 FPS";updateSummary();toast("Perfil cargado")};
+$("deleteProfile").onclick=()=>{let name=$("savedProfiles").value;if(!name){toast("Selecciona un perfil");return}let profiles=getSavedProfiles();delete profiles[name];localStorage.setItem("rdn_profiles",JSON.stringify(profiles));refreshProfiles();toast("Perfil eliminado")};
+
+$("loginForm").addEventListener("submit",e=>{e.preventDefault();let u=$("username").value.trim(),p=$("password").value;if(u==="rúzzo’s member"&&p==="rúzzos death note"){showApp(u);toast("Bienvenido a Rúzzos Death Note")}else{toast("Usuario o clave incorrectos")}});
+$("logout").onclick=()=>{$("appView").classList.add("hidden");$("loginView").classList.remove("hidden");$("password").value=""};
+$("save").onclick=()=>{let data={values:readValues(),device:$("device").value,deviceModel:$("deviceModel").value,profile:$("profile").value,dpi:$("dpi").value,fps:$("fps").value,updated:new Date().toISOString()};localStorage.setItem("rdn_config",JSON.stringify(data));updateSummary();toast("Configuración guardada en este dispositivo")};
+$("reset").onclick=()=>{renderSliders();toast("Valores restablecidos; pulsa Guardar para conservarlos")};
+$("device").onchange=updateSummary;$("profile").onchange=updateSummary;
+$("export").onclick=()=>{let data={brand:"Rúzzos Death Note",device:$("device").value,deviceModel:$("deviceModel").value,profile:$("profile").value,browserDiagnostics:{screen:`${screen.width}x${screen.height}`,devicePixelRatio:window.devicePixelRatio||1,maxTouchPoints:navigator.maxTouchPoints||0},sensitivity:keys.map((k,i)=>({name:k[0],value:Number($("s"+i).value)})),dpi:$("dpi").value||null,fps:$("fps").value,notice:"Valores de referencia. Introducir manualmente en los ajustes del juego."};let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="ruzzos-death-note-config.json";a.click();URL.revokeObjectURL(url);toast("Archivo de configuración exportado")};
+</script>
+<script>
+let deferredInstallPrompt = null;
+const installBtn = document.getElementById('installBtn');
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  installBtn.textContent = 'INSTALAR APP';
+});
+installBtn.addEventListener('click', async () => {
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+  } else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+    alert('En Safari: toca Compartir y después “Añadir a pantalla de inicio”.');
+  } else {
+    alert('Abre esta página desde Chrome y usa el menú ⋮ → “Instalar aplicación” o “Añadir a pantalla de inicio”.');
+  }
+});
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
